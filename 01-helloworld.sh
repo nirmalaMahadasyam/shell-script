@@ -1,1 +1,3 @@
-this is sample code for hello world
+# !/bin/bash 
+
+echo "Hello I am learning devops"
