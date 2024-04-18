@@ -2,18 +2,17 @@
 
 USERID=$(id -u) # to run the cmd inside shell script and take the output.i.e, output will holds in USERID
 
-if[$USERID -ne 0]
+if[ $USERID -ne 0 ]
 then
 echo "Please run this script as root access."
 exit 1 # manually exit if error comes
-
 else
 echo "you are Super User."
 fi
 
 dnf install mysql -y
 
-if[$? -ne 0]
+if[ $? -ne 0 ]
 then
 echo "Installation of mysql....FAILURE"
 exit 1
@@ -25,7 +24,7 @@ fi
 
 dnf install git -y
 
-if[$? -ne 0]
+if[ $? -ne 0 ]
 then
 echo "Installation of git....FAILURE"
 exit 1
