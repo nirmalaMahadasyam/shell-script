@@ -4,8 +4,15 @@ USERID=$(id -u)
 
 #create a function to aviod repeating code
 VALIDATE(){
-    echo "exit status: $1"
-    echo "what are you doing : $2"
+    #echo "exit status: $1"
+    #echo "what are you doing : $2"
+    if [ $1 -ne 0 ]
+    then
+    echo "$2......FAILURE"
+    exit 1
+    else
+    echo "$2.......SUCCESS"
+    fi
 
 }
 
