@@ -1,6 +1,9 @@
 #!/bin/bash
 
 USERID=$(id -u)
+TIMESTAMP=$(date +%F-%H-%M-%s)
+SCRIPT_NAME=$($0 | cut -d "." -f1)
+LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 
 #create a function to aviod repeating code
 VALIDATE(){
@@ -24,7 +27,7 @@ else
 echo "super admin"
 fi
 
-dnf install mysql -y
+dnf install mysql -y &>>$LOGFILE
 # call the function
 VALIDATE $? "Installation of mysql"
 
@@ -36,7 +39,7 @@ VALIDATE $? "Installation of mysql"
 # echo "Installation of mysql....SUCCESS"
 # fi
 
-dnf install git -y
+dnf install git -y &>>$LOGFILE
 VALIDATE $? "Installation of git"  # $? -----$1, "Installation of git"-----$2 two variables are passing.
 
 # if [ $? -ne 0 ]
