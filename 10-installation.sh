@@ -2,7 +2,7 @@
 
 USERID=$(id -u) # to run the cmd inside shell script and take the output.i.e, output will holds in USERID
 
-if[[ $USERID -ne 0 ]]; then
+if[ "$USERID" != 0 ]; then
     echo "Please run this script as root access."
     exit 1 # manually exit if error comes
 else
