@@ -4,7 +4,7 @@ USERID=$((id -u)) # to run the cmd inside shell script and take the output.i.e, 
 
 echo "your userid is :: $USERID"
 
-if[$USERID -er 0]
+if[$USERID -eq 0]
 then
 echo "you are super admin"
 exit 1
